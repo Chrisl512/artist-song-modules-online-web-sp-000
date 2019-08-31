@@ -1,11 +1,18 @@
 module Memorable
+  module ClassMethods
+    def count
+      all.count
+    end
 
-  def count
-    all.count
+    def reset_all
+      all.clear
+    end
   end
 
-  def reset_all
-    all.clear
+  module InstanceMethods
+    def initialize
+      self.class.all << self
+    end
   end
 
 end
